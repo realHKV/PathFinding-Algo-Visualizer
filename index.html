@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Algorithm Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>PathFinding Algorithm Visualizer</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>Drawing Mode</label>
+                <div class="mode-buttons">
+                    <button id="wallMode" class="active">Wall</button>
+                    <button id="startMode">Start</button>
+                    <button id="goalMode">Goal</button>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Algorithm</label>
+                <div class="algorithm-buttons">
+                    <button id="astarBtn">A*</button>
+                    <button id="dijkstraBtn">Dijkstra</button>
+                    <button id="bfsBtn">BFS</button>
+                    <button id="dfsBtn">DFS</button>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Speed</label>
+                <div class="speed-control">
+                    <input type="range" id="speedSlider" min="1" max="100" value="50">
+                    <span id="speedValue">25ms</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <button id="clearBtn">Clear Grid</button>
+                <button id="resetBtn">Reset Path</button>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid" id="grid"></div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="timeValue">0</div>
+                <div class="stat-label">Time (ms)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="nodesValue">0</div>
+                <div class="stat-label">Nodes Visited</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="pathLengthValue">0</div>
+                <div class="stat-label">Path Length</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #27ae60;"></div>
+                <span>Start</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e74c3c;"></div>
+                <span>Goal</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2c3e50;"></div>
+                <span>Wall</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #3498db;"></div>
+                <span>Open Set</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9b59b6;"></div>
+                <span>Closed Set</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f39c12;"></div>
+                <span>Path</span>
+            </div>
+        </div>
+
+        <div class="status" id="status">Click on the grid to place walls, start, or goal. Hold and drag to draw walls!</div>
+    </div>
+</body>
+</html>    
